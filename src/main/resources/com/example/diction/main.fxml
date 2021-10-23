@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="900.0" style="-fx-background-color: #D6EED4; -fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diction.HelloController">
+   <children>
+      <Label alignment="CENTER" prefHeight="18.0" prefWidth="900.0" style="-fx-background-color: #04BF8A;" text="📘Từ Điển Anh - Việt" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei" size="30.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="40.0" prefHeight="497.0" prefWidth="210.0" style="-fx-background-color: #71C155;">
+         <children>
+            <ImageView fx:id="tudien" fitHeight="127.0" fitWidth="139.0" layoutX="42.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/tudien.png" />
+               </image>
+            </ImageView>
+            <VBox layoutY="133.0" prefHeight="370.0" prefWidth="210.0" style="-fx-background-radius: 20px;">
+               <children>
+                  <Button fx:id="addButton" alignment="CENTER" mnemonicParsing="false" onAction="#addAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-radius: 20px; -fx-background-color: #71C155;" text="Thêm" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft YaHei" size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="addImage" blendMode="MULTIPLY" cache="true" fitHeight="40.0" fitWidth="35.0" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/add.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="modifyButton" alignment="CENTER" mnemonicParsing="false" onAction="#modifyAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Sửa" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft YaHei" size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="modifyImage" blendMode="MULTIPLY" fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/modify.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Xóa" textFill="#fffdfd">
+                     <font>
+                        <Font name="Microsoft YaHei" size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="deleteImage" blendMode="MULTIPLY" fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="dichOnline" mnemonicParsing="false" onAction="#dichOnlineAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Dịch Online" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft YaHei" size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView blendMode="MULTIPLY" fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/searchgg.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <TextField layoutX="297.0" layoutY="47.0" prefHeight="42.0" prefWidth="499.0" style="-fx-background-radius: 20px;">
+         <font>
+            <Font name="Microsoft YaHei" size="17.0" />
+         </font>
+      </TextField>
+      <Button fx:id="searchButton" layoutX="820.0" layoutY="48.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="40.0" prefWidth="58.0" style="-fx-background-radius: 15px; -fx-background-color: #84CD7F;" text="🔎">
+         <font>
+            <Font name="Microsoft YaHei" size="17.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="243.0" layoutY="112.0" prefHeight="29.0" prefWidth="222.0" style="-fx-background-radius: 15px; -fx-background-color: #2ED795;" text="Từ Gợi Ý">
+         <font>
+            <Font name="Microsoft YaHei" size="17.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listView" layoutX="243.0" layoutY="148.0" prefHeight="394.0" prefWidth="222.0" style="-fx-background-radius: 15px;" />
+      <Label alignment="CENTER" layoutX="527.0" layoutY="112.0" prefHeight="29.0" prefWidth="269.0" style="-fx-background-radius: 15px; -fx-background-color: #2ED795;" text="Dịch Nghĩa">
+         <font>
+            <Font name="Microsoft YaHei" size="17.0" />
+         </font>
+      </Label>
+      <WebView fx:id="webView" layoutX="525.0" layoutY="150.0" prefHeight="394.0" prefWidth="375.0" />
+      <Button fx:id="speakButton" layoutX="829.0" layoutY="109.0" mnemonicParsing="false" onAction="#speakAction" style="-fx-background-color: #84CD7F; -fx-background-radius: 15px;" text="🔊">
+         <font>
+            <Font name="Microsoft YaHei" size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

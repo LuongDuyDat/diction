@@ -120,7 +120,7 @@ public class loadEntry {
             s.trim();
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
-            String sql = ("SELECT * FROM av WHERE word LIKE \"" + s + "%\" LIMIT 10;");
+            String sql = ("SELECT * FROM av WHERE word LIKE \"" + s + "%\"ORDER BY word LIMIT 100;");
             ResultSet rs = st.executeQuery(sql);
             if (!rs.next()) {
                 ArrayList<String> listword = this.approxiamteSearch(s);

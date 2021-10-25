@@ -37,13 +37,13 @@ public class HelloController {
     private Button searchButton;
 
     @FXML
+    private Button speakButton;
+
+    @FXML
     private ListView<?> listView;
 
     @FXML
     private WebView webView;
-
-    @FXML
-    private Button speakButton;
 
     @FXML
     void addAction(ActionEvent event) {

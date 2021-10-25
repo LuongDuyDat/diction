@@ -25,9 +25,10 @@ public class word {
     public word(int id, String word, String html, String description, String pronounce) {
         this.id = id;
         this.word = word;
+        this.html = html;
         this.description = description;
         this.pronounce = pronounce;
-        exception = "false";
+        this.exception = "false";
     }
 
     public int getId() {

@@ -12,7 +12,7 @@ public class JDBCConnection {
     public JDBCConnection() {
         try {
             Class.forName("org.sqlite.JDBC");
-            String DbURL = "jdbc:sqlite:D:/Diction/database/dict.db";
+            String DbURL = "jdbc:sqlite:D:/OOP/Diction2/database/dict.db";
             connection = DriverManager.getConnection(DbURL);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

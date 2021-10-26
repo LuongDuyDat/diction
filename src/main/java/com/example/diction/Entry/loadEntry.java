@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class loadEntry {
 
@@ -26,7 +27,9 @@ public class loadEntry {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
-            String sql = ("INSERT INTO av (word, description) VALUES (\"" + word + "\",\"" + description + "\");");
+            word = word.toLowerCase();
+            String sql = ("INSERT INTO av (word, description, html) VALUES (\"" + word + "\",\"" + description + "\",\"" + description + "\");");
+            System.out.println(sql);
             st.execute(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -37,6 +40,7 @@ public class loadEntry {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
+            word = word.toLowerCase();
             String sql = ("DELETE FROM av WHERE word = \"" + word + "\";");
             if (!st.execute(sql)) {
                 throw new InvalidWord("Khong tim duoc tu trong tu dien");
@@ -55,6 +59,7 @@ public class loadEntry {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
+            word = word.toLowerCase();
             String sql = ("UPDATE av SET description = \"" + description + "\", html = \"" +
                            description + "\" WHERE word = \"" + word + "\";");
             if (!st.execute(sql)) {
@@ -76,6 +81,7 @@ public class loadEntry {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
+            s = s.toLowerCase();
             String sql = ("SELECT * FROM av WHERE word = \"" + s + "\";");
             ResultSet rs = st.executeQuery(sql);
             if (!rs.next()) {
@@ -100,6 +106,7 @@ public class loadEntry {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
+            s = s.toLowerCase();
             String sql = ("SELECT * FROM av WHERE ");
             for (int i = 0; i < candidates.size() - 1; i++) {
                 sql += "\"word\" LIKE \"%" + candidates.get(i) + "%\"" + "OR";
@@ -120,6 +127,7 @@ public class loadEntry {
             s.trim();
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
+            s = s.toLowerCase();
             String sql = ("SELECT * FROM av WHERE word LIKE \"" + s + "%\"ORDER BY word LIMIT 100;");
             ResultSet rs = st.executeQuery(sql);
             if (!rs.next()) {

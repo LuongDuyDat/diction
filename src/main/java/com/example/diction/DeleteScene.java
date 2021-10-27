@@ -12,6 +12,7 @@ public class DeleteScene {
             Parent root = FXMLLoader.load(this.getClass().getResource("deleteScene.fxml"));
             Scene scene = new Scene(root);
             Stage primaryStage = new Stage();
+            primaryStage.setTitle("XÓA TỪ");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {

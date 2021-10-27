@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="353.0" prefWidth="503.0" style="-fx-background-color: #7BCC7F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diction.addController">
+<AnchorPane prefHeight="353.0" prefWidth="503.0" style="-fx-background-color: #7BCC7F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diction.addController">
    <children>
       <Label alignment="CENTER" layoutY="-2.0" prefHeight="50.0" prefWidth="503.0" style="-fx-background-color: #04BF8A;" text="Thêm Từ">
          <font>
@@ -18,7 +18,7 @@
             <Font name="Microsoft YaHei" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="158.0" layoutY="77.0" prefHeight="42.0" prefWidth="330.0" style="-fx-background-radius: 10px;">
+      <TextField fx:id="addWord" layoutX="158.0" layoutY="77.0" prefHeight="42.0" prefWidth="330.0" style="-fx-background-radius: 10px;">
          <font>
             <Font name="Microsoft YaHei" size="15.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="Microsoft YaHei" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="158.0" layoutY="153.0" prefHeight="128.0" prefWidth="330.0" style="-fx-background-radius: 10px;">
+      <TextField fx:id="addDescription" layoutX="158.0" layoutY="153.0" prefHeight="128.0" prefWidth="330.0" style="-fx-background-radius: 10px;">
          <font>
             <Font name="Microsoft YaHei" size="15.0" />
          </font>

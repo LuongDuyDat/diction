@@ -106,6 +106,10 @@ public class HelloController {
     void searchAction(ActionEvent event) {
         String text = searchText.getText();
         word w = l.searchWord(text);
+        if (w.getException() == "Khong tim duoc tu trong tu dien") {
+            messagefailScene m = new messagefailScene();
+            m.setScene(event);
+        }
         WebEngine webEngine = webView.getEngine();
         webEngine.loadContent(w.getHtml());
     }

@@ -18,7 +18,7 @@
                 <Font name="Microsoft YaHei" size="15.0" />
             </font>
         </Label>
-        <TextField layoutX="135.0" layoutY="87.0" prefHeight="42.0" prefWidth="330.0" style="-fx-background-radius: 10px;">
+        <TextField fx:id="deleteWord" layoutX="135.0" layoutY="87.0" prefHeight="42.0" prefWidth="330.0" style="-fx-background-radius: 10px;">
             <font>
                 <Font name="Microsoft YaHei" size="15.0" />
             </font>

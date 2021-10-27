@@ -23,55 +23,57 @@ public class loadEntry {
         translation = new GoogleTranslateAPI();
     }
 
-    public void insertWord(String word, String description) {
+    public boolean insertWord(String word, String description) {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
             word = word.toLowerCase();
             String sql = ("INSERT INTO av (word, description, html) VALUES (\"" + word + "\",\"" + description + "\",\"" + description + "\");");
-            System.out.println(sql);
+            if (this.searchWord(word).getException() == "false") {
+                return false;
+            }
             st.execute(sql);
+            return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
 
-    public String deleteWord(String word) {
+    public boolean deleteWord(String word) {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
             word = word.toLowerCase();
             String sql = ("DELETE FROM av WHERE word = \"" + word + "\";");
-            if (!st.execute(sql)) {
+            if (this.searchWord(word).getException() != "false") {
                 throw new InvalidWord("Khong tim duoc tu trong tu dien");
             }
-            else {
-                return "Hop le";
-            }
+            st.execute(sql);
+            return true;
         } catch (SQLException e) {
-            return e.getMessage();
+            return false;
         } catch (InvalidWord i) {
-            return i.getMessage();
+            return false;
         }
     }
 
-    public String updateWord(String word, String description) {
+    public boolean updateWord(String word, String description) {
         try {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
             word = word.toLowerCase();
             String sql = ("UPDATE av SET description = \"" + description + "\", html = \"" +
                            description + "\" WHERE word = \"" + word + "\";");
-            if (!st.execute(sql)) {
+            if (this.searchWord(word).getException() != "false") {
                 throw new InvalidWord("Khong tim duoc tu trong tu dien");
             }
-            else {
-                return "Hop le";
-            }
+            st.execute(sql);
+            return true;
         } catch (SQLException e) {
-            return e.getMessage();
+            return false;
         } catch (InvalidWord i) {
-            return i.getMessage();
+            return false;
         }
     }
 
@@ -82,22 +84,19 @@ public class loadEntry {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
             s = s.toLowerCase();
-            System.out.println(s);
             String sql = ("SELECT * FROM av WHERE word = \"" + s + "\";");
             ResultSet rs = st.executeQuery(sql);
             if (!rs.next()) {
-                translated = translation.translate("en", "vi", s);
-                throw new GoogleTranslateException("Use Google Translation");
+                throw new InvalidWord("Khong tim duoc tu trong tu dien");
             }
             word Word = new word(rs.getInt(1), rs.getString(2),
                     rs.getString(3), rs.getString(4), rs.getString(5));
+            rs.close();
             return Word;
         } catch (SQLException e) {
             return new word(e.getMessage());
-        } catch (GoogleTranslateException g) {
-            return new word(s, translated, g.getMessage());
-        } catch (IOException i) {
-            return new word(i.getMessage());
+        } catch (InvalidWord iv) {
+            return new word(iv.getMessage());
         }
     }
 
@@ -117,6 +116,7 @@ public class loadEntry {
             while (rs.next()) {
                 result.add(rs.getString(2));
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -131,8 +131,15 @@ public class loadEntry {
             s = s.toLowerCase();
             String sql = ("SELECT * FROM av WHERE word LIKE \"" + s + "%\"ORDER BY word LIMIT 100;");
             ResultSet rs = st.executeQuery(sql);
-            if (!rs.next()) {
-                ArrayList<String> listword = this.approxiamteSearch(s);
+            ArrayList<String> listword = new ArrayList<>();
+            while (rs.next()) {
+                String Word = rs.getString(2);
+                listword.add(Word);
+            }
+
+            if (listword.size() == 0) {
+                rs.close();
+                listword = this.approxiamteSearch(s);
                 if (listword.size() == 0) {
                     throw new InvalidWord("The dictionary is not have this word and the approximate of it");
                 }
@@ -140,11 +147,7 @@ public class loadEntry {
                     return listword;
                 }
             }
-            ArrayList<String> listword = new ArrayList<>();
-            while (rs.next()) {
-                String Word = rs.getString(2);
-                listword.add(Word);
-            }
+            rs.close();
             return listword;
         } catch (SQLException e) {
             ArrayList<String> listword = new ArrayList<>();

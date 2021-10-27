@@ -12,6 +12,7 @@ public class ModifyScene {
             Parent root = FXMLLoader.load(this.getClass().getResource("modifyScene.fxml"));
             Scene scene = new Scene(root);
             Stage primaryStage = new Stage();
+            primaryStage.setTitle("SỬA TỪ");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {

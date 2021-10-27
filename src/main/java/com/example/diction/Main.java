@@ -16,6 +16,7 @@ public class Main extends Application {
     @Override
     public void start (Stage primaryStage) {
         try {
+            primaryStage.setTitle("TỪ ĐIỂN ANH VIÊT");
             Parent root = FXMLLoader.load(this.getClass().getResource("main.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);

@@ -82,6 +82,7 @@ public class loadEntry {
             Connection con = databases.getConnection();
             Statement st = con.createStatement();
             s = s.toLowerCase();
+            System.out.println(s);
             String sql = ("SELECT * FROM av WHERE word = \"" + s + "\";");
             ResultSet rs = st.executeQuery(sql);
             if (!rs.next()) {

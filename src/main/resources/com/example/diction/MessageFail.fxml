@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="231.0" prefWidth="503.0" style="-fx-background-color: #7BCC7F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diction.messageController">
+<AnchorPane fx:id="scene" prefHeight="231.0" prefWidth="503.0" style="-fx-background-color: #7BCC7F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diction.messagefailController">
     <children>
         <Label alignment="CENTER" layoutY="-2.0" prefHeight="50.0" prefWidth="503.0" style="-fx-background-color: #04BF8A;" text="Thông Báo">
             <font>
@@ -17,7 +17,7 @@
                 <Font name="Microsoft YaHei" size="17.0" />
             </font>
         </Label>
-        <Button fx:id="ok" layoutX="202.0" layoutY="173.0" mnemonicParsing="false" onAction="#OK" prefHeight="40.0" prefWidth="98.0" style="-fx-background-radius: 15px;" text="OK">
+        <Button fx:id="ok" layoutX="202.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#OK" prefHeight="40.0" prefWidth="98.0" style="-fx-background-radius: 15px;" text="OK">
             <font>
                 <Font name="Microsoft YaHei" size="20.0" />
             </font>

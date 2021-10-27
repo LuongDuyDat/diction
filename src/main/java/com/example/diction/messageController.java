@@ -3,15 +3,17 @@ package com.example.diction;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class messageController {
 
     @FXML
-    private Button ok;
+    private AnchorPane scene;
 
     @FXML
-    void OK(ActionEvent event) {
+    private Button ok;
 
-    }
+
 
 }

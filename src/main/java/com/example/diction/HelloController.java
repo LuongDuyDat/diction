@@ -5,6 +5,7 @@ import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -73,10 +75,7 @@ public class HelloController {
 
     private loadEntry l = new loadEntry();
 
-
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
+    private DropShadow shadow = new DropShadow();
 
     @FXML
     void addAction(ActionEvent event) {
@@ -145,5 +144,89 @@ public class HelloController {
         word w = l.searchWord(text);
         WebEngine webEngine = webView.getEngine();
         webEngine.loadContent(w.getHtml());
+    }
+
+    @FXML
+    public void enterSearchButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_ENTERED)) {
+            searchButton.setEffect(shadow);
+        }
+    }
+
+    @FXML
+    public void exitSearchButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_EXITED)) {
+            searchButton.setEffect(null);
+        }
+    }
+
+    @FXML
+    public void enterAddButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_ENTERED)) {
+            addButton.setEffect(shadow);
+        }
+    }
+
+    @FXML
+    public void exitAddButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_EXITED)) {
+            addButton.setEffect(null);
+        }
+    }
+
+    @FXML
+    public void enterModifyButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_ENTERED)) {
+            modifyButton.setEffect(shadow);
+        }
+    }
+
+    @FXML
+    public void exitModifyButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_EXITED)) {
+            modifyButton.setEffect(null);
+        }
+    }
+
+    @FXML
+    public void enterDeleteButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_ENTERED)) {
+            deleteButton.setEffect(shadow);
+        }
+    }
+
+    @FXML
+    public void exitDeleteButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_EXITED)) {
+            deleteButton.setEffect(null);
+        }
+    }
+
+    @FXML
+    public void enterSearchOnlButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_ENTERED)) {
+            dichOnline.setEffect(shadow);
+        }
+    }
+
+    @FXML
+    public void exitSearchOnlButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_EXITED)) {
+            dichOnline.setEffect(null);
+        }
+    }
+
+    @FXML
+    public void enterSpeakButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_ENTERED)) {
+            speakButton.setEffect(shadow);
+        }
+    }
+
+    @FXML
+    public void exitSpeakButton(MouseEvent mouseEvent) {
+        if (mouseEvent.getEventType().equals(mouseEvent.MOUSE_EXITED)) {
+            speakButton.setEffect(null);
+        }
     }
 }

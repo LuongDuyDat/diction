@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="900.0" style="-fx-background-color: #D6EED4; -fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diction.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="900.0" style="-fx-background-color: #D6EED4; -fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diction.HelloController">
    <children>
       <Label alignment="CENTER" prefHeight="18.0" prefWidth="900.0" style="-fx-background-color: #04BF8A;" text="📘Từ Điển Anh - Việt" textAlignment="RIGHT" textFill="WHITE">
          <font>
@@ -28,7 +28,7 @@
             </ImageView>
             <VBox layoutY="133.0" prefHeight="370.0" prefWidth="210.0" style="-fx-background-radius: 20px;">
                <children>
-                  <Button fx:id="addButton" alignment="CENTER" mnemonicParsing="false" onAction="#addAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-radius: 20px; -fx-background-color: #71C155;" text="Thêm" textFill="WHITE">
+                  <Button fx:id="addButton" alignment="CENTER" mnemonicParsing="false" onAction="#addAction" onMouseEntered="#enterAddButton" onMouseExited="#exitAddButton" prefHeight="69.0" prefWidth="210.0" style="-fx-background-radius: 20px; -fx-background-color: #71C155;" text="Thêm" textFill="WHITE">
                      <font>
                         <Font name="Microsoft YaHei" size="17.0" />
                      </font>
@@ -43,7 +43,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="modifyButton" alignment="CENTER" mnemonicParsing="false" onAction="#modifyAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Sửa" textFill="WHITE">
+                  <Button fx:id="modifyButton" alignment="CENTER" mnemonicParsing="false" onAction="#modifyAction" onMouseEntered="#enterModifyButton" onMouseExited="#exitModifyButton" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Sửa" textFill="WHITE">
                      <font>
                         <Font name="Microsoft YaHei" size="17.0" />
                      </font>
@@ -55,7 +55,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Xóa" textFill="#fffdfd">
+                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteAction" onMouseEntered="#enterDeleteButton" onMouseExited="#exitDeleteButton" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Xóa" textFill="#fffdfd">
                      <font>
                         <Font name="Microsoft YaHei" size="17.0" />
                      </font>
@@ -67,7 +67,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="dichOnline" mnemonicParsing="false" onAction="#dichOnlineAction" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Dịch Online" textFill="WHITE">
+                  <Button fx:id="dichOnline" mnemonicParsing="false" onAction="#dichOnlineAction" onMouseEntered="#enterSearchOnlButton" onMouseExited="#exitSearchOnlButton" prefHeight="69.0" prefWidth="210.0" style="-fx-background-color: #71C155;" text="Dịch Online" textFill="WHITE">
                      <font>
                         <Font name="Microsoft YaHei" size="17.0" />
                      </font>
@@ -88,7 +88,7 @@
             <Font name="Microsoft YaHei" size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="searchButton" layoutX="820.0" layoutY="48.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="40.0" prefWidth="58.0" style="-fx-background-radius: 15px; -fx-background-color: #84CD7F;" text="🔎">
+      <Button fx:id="searchButton" layoutX="820.0" layoutY="48.0" mnemonicParsing="false" onAction="#searchAction" onMouseEntered="#enterSearchButton" onMouseExited="#exitSearchButton" prefHeight="40.0" prefWidth="58.0" style="-fx-background-radius: 15px; -fx-background-color: #84CD7F;" text="🔎">
          <font>
             <Font name="Microsoft YaHei" size="17.0" />
          </font>
@@ -103,7 +103,7 @@
             <Font name="Microsoft YaHei" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="speakButton" layoutX="829.0" layoutY="109.0" mnemonicParsing="false" onAction="#speakAction" style="-fx-background-color: #84CD7F; -fx-background-radius: 15px;" text="🔊">
+      <Button fx:id="speakButton" layoutX="829.0" layoutY="109.0" mnemonicParsing="false" onAction="#speakAction" onMouseEntered="#enterSpeakButton" onMouseExited="#exitSpeakButton" style="-fx-background-color: #84CD7F; -fx-background-radius: 15px;" text="🔊">
          <font>
             <Font name="Microsoft YaHei" size="17.0" />
          </font>
